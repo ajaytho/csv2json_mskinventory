@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+dist
+build
+venv
+csv2json_inventory.spec
+.idea
