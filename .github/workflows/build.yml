@@ -61,7 +61,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: csv2json_mskinventory_win
-        path: dist\csv2json_mskinventory\csv2json_mskinventory.exe
+        path: dist\csv2json_mskinventory.exe
 
   osx:
     # The type of runner that the job will run on
