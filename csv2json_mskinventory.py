@@ -9,28 +9,26 @@ def main(argv):
     inputfile = None
     outputfile = None
     try:
-        opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
+        opts, args = getopt.getopt(argv, "hi:o:", ["ifile="])
     except getopt.GetoptError:
-        print('convert_to_json.py -i <inputfile> -o <outputfile>')
+        print('convert_to_json.py -i <inputfile>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print('convert_to_json.py -i <inputfile> -o <outputfile>')
+            print('convert_to_json.py -i <inputfile>')
             sys.exit()
         elif opt in ("-i", "--ifile"):
             inputfile = arg
-        elif opt in ("-o", "--ofile"):
-            outputfile = arg
     print('Input file  : ', inputfile)
-    print('Output file : ', outputfile)
     if inputfile is None:
-        print('convert_to_json.py -i <inputfile> -o <outputfile>')
+        print('convert_to_json.py -i <inputfile>')
         sys.exit(2)
-    make_json(inputfile, outputfile)
+    make_json(inputfile)
 
 
-def make_json(csvFilePath, jsonFilePath):
+def make_json(csvFilePath):
     data = {}
+    jsonFilePath = None
     starttblstr = "[{"
     endtblstr = "}]"
     startcolstr = "\"columns\": ["
@@ -121,9 +119,3 @@ def make_json(csvFilePath, jsonFilePath):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-
-# csvFilePath = r'ALFA_Inventories/ALFA_MISCINFO_WA_RS_182112420303.csv'
-# jsonFilePath = r'ALFA_MISCINFO_WA_RS_182112420303.json'
-
-# # Call the make_json function
-# make_json(csvFilePath, jsonFilePath)
