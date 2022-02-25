@@ -67,6 +67,7 @@ def make_json(csvFilePath):
                         with open(jsonFilePath, 'w', encoding='utf-8') as jsonf:
                              #print(json.dumps(json_object, indent=4, sort_keys=True))
                              jsonf.write(json.dumps(json_object, indent=4))
+                             print('Output file  : ', jsonFilePath)
 
                         prevtab = nexttab
                         tabstr = starttblstr + '"tableName": "{}",'.format(table_name)
@@ -116,6 +117,7 @@ def make_json(csvFilePath):
             with open(jsonFilePath, 'w', encoding='utf-8') as jsonf:
                 #print(json.dumps(json_object, indent=4, sort_keys=True))
                 jsonf.write(json.dumps(json_object, indent=4))
+                print('Output file  : ', jsonFilePath)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
