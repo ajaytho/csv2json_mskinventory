@@ -4,3 +4,5 @@ build
 venv
 csv2json_inventory.spec
 .idea
+.DS_Store
+*.json

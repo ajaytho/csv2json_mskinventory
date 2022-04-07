@@ -54,7 +54,7 @@ def make_json(csvFilePath):
                     table_name = rowarr[2]
                     prevtab = table_name
                     nexttab = table_name
-                    tabstr = starttblstr + '"tableName": "{}",'.format(table_name)
+                    tabstr = starttblstr + '"tableName": "{}",'.format(table_name.lower())
                     jsonFilePath = "{}.json".format(table_name)
                 elif i > 1:
                     table_name = rowarr[2]
@@ -70,7 +70,7 @@ def make_json(csvFilePath):
                              print('Output file  : ', jsonFilePath)
 
                         prevtab = nexttab
-                        tabstr = starttblstr + '"tableName": "{}",'.format(table_name)
+                        tabstr = starttblstr + '"tableName": "{}",'.format(table_name.lower())
                         jsonFilePath = "{}.json".format(table_name)
                         firstcolinlist = 0
                         fullcolstr = startcolstr
@@ -79,6 +79,7 @@ def make_json(csvFilePath):
                 if rowarr[3] == 'PK IX':
                     writefile = 1
                     columnName = rowarr[5]
+                    columnName = columnName.lower()
                     data_type = rowarr[6]
                     dataType = data_type.split(" ")[0]
                     pattern = ".*\((.*?)\)"
@@ -94,6 +95,7 @@ def make_json(csvFilePath):
                     if rowarr[8] != '-':
                         writefile = 1
                         columnName = rowarr[5]
+                        columnName = columnName.lower()
                         data_type = rowarr[6]
                         dataType = data_type.split(" ")[0]
                         pattern = ".*\((.*?)\)"
